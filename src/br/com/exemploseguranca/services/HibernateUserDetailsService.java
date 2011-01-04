@@ -30,7 +30,7 @@ public class HibernateUserDetailsService extends HibernateDaoSupport implements 
 		criteria.add(Restrictions.eq("usuario.login", login));
 		List resultado = getHibernateTemplate().findByCriteria(criteria);
 		if(resultado != null && resultado.size() == 0) {
-			throw new UsernameNotFoundException("Usuário não encontrado!");
+			throw new UsernameNotFoundException("Usuario nao encontrado!");
 	    }	
 		return (Usuario)resultado.get(0);
 	}
