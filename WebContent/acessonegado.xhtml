@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.prime.com.tr/ui">
+	
+   <h:head>
+    
+       <title>
+       		Spring + Security + Hibernate
+       </title>
+       
+       <link href="#{facesContext.externalContext.requestContextPath}/css/redmond/skin.css" rel="stylesheet" type="text/css" />
+        
+   </h:head> 
+   
+   <h:body style="font-size: 10pt">     
+  		
+   		<p:dialog header="Ops! Acesso Negado!"
+   				  modal="true"
+   				  closable="true"
+   				  position="center"
+   				  widgetVar="modalNegado"
+   				  minWidth="300"
+   				  width="300"
+   				  showEffect="shake" 
+   		    	  draggable="true"
+   		    	  resizable="true"
+   		    	  visible="true">
+   		    	  
+   		    <center>
+   		    	  
+   		    	<img src="#{facesContext.externalContext.requestContextPath}/img/acesso_negado.gif" />
+	   		    
+	   		    <br />
+	   		    <br />
+	   		    <br />	   		    	  	   		    	  	 
+	   		    <a href="#{facesContext.externalContext.requestContextPath}/paginas/inicio.jsf">
+	   		     Voltar 
+	   		    </a>	   		    	  	 
+    		 				 
+   		    </center>
+    				   				
+ 		</p:dialog>	
+ 
+	</h:body>
+
+</html>

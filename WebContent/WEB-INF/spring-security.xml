@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:sec="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">				
+	
+	<sec:http auto-config="true" access-denied-page="/acessonegado.jsf">
+		
+		<sec:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<sec:intercept-url pattern="/paginas/inicio*" access="ROLE_USER, ROLE_ADM" />
+		<sec:intercept-url pattern="/paginas/usuario/**" access="ROLE_USER, ROLE_ADM" />
+		<sec:intercept-url pattern="/paginas/admin/**" access="ROLE_ADM" />		
+		
+		<sec:form-login login-page="/login.jsf"
+					    login-processing-url="/j_spring_security_check" 
+						default-target-url="/paginas/inicio.jsf" 
+					    authentication-failure-url="/login.jsf" />
+					    
+		<sec:logout logout-success-url="/login.jsf" />
+		
+	</sec:http>
+
+	<sec:authentication-manager>
+		<sec:authentication-provider user-service-ref="hibernateUserDetailsService" ref="daoAuthenticationProvider" />
+	</sec:authentication-manager>
+
+	<bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="hibernateUserDetailsService" />
+	</bean>
+
+	<bean id="loggerListener" class="org.springframework.security.access.event.LoggerListener" />						
+ 
+</beans>
