@@ -11,7 +11,7 @@ import org.springframework.security.web.WebAttributes;
 import br.com.exemploseguranca.web.util.FacesUtil;
 
 /**
- * PhaseListener utilizado para capturar exceções de autenticação
+ * PhaseListener utilizado para capturar excecoes de autenticacao
  *
  */
 @SuppressWarnings({"serial"})
